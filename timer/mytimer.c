@@ -1,3 +1,7 @@
+/*
+@brief: This program toggles an LED with a period of one second.
+@Author: Jahnavi Pinnamaneni
+*/
 #include <linux/module.h>
 #include <linux/init.h>
 #include <linux/gpio.h>
@@ -12,6 +16,10 @@ int flag = 0;
 
 static struct timer_list my_timer;
 
+/*
+@brief: This is interrupt handler.
+	The functions toggles the LED and calls itself recursively
+*/
 void timer_callback(struct timer_list * data)
 {
 	if(flag)
@@ -27,6 +35,10 @@ void timer_callback(struct timer_list * data)
 	mod_timer(&my_timer, jiffies + msecs_to_jiffies(1000));
 }
 
+/*
+@brief: Module Initialization
+	This function initializes the GPIO pin and timer.
+*/
 static int __init ModuleInit(void)
 {
 	printk("Hello Kernel\n");
@@ -52,6 +64,10 @@ static int __init ModuleInit(void)
 	return 0;
 }
 
+/*
+@brief: Unloading the module
+	This function frees the gpio and deletes the timer
+*/
 static void __exit ModuleExit(void)
 {
 	printk("GoodBye\n");

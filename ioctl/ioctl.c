@@ -1,3 +1,11 @@
+/*
+@brief: This code demonstrates the use of Input Output Control for device drivers
+	We illustrate 3 commands - Write, read and greeting.
+	We can write and read a 32 bit value and we can take a structure as argument and 
+	greet the user for the specified number of times.
+
+@Author: Jahnavi Pinnamaneni
+*/
 #include <linux/module.h>
 #include <linux/init.h>
 #include <linux/fs.h>
@@ -18,12 +26,19 @@ static struct cdev my_device;
 #define DRIVER_NAME "aesd_ioctl"
 #define DRIVER_CLASS "MyModuleClass"
 
+
+/*
+@brief: This function is called when open is executed
+*/
 static int driver_open(struct inode *device_file, struct file *instance)
 {
 	printk("ioctl: open was called!\n");
 	return 0;
 }
 
+/*
+@brief: This function is called when close is executed
+*/
 static int driver_close(struct inode *device_file, struct file *instance)
 {
 	printk("ioctl: close was called\n");
@@ -32,6 +47,11 @@ static int driver_close(struct inode *device_file, struct file *instance)
 
 int32_t answer = 42;
 
+/*
+@brief: This fucntion performs the fucntions specific to the command.
+@desc: based on the command recieved one of the 3 functions are executed.
+@params: file descriptor, command, and arguments
+*/
 static long int my_ioctl(struct file *file, unsigned cmd, unsigned long arg)
 {
 	struct mystruct test;
@@ -71,6 +91,10 @@ static struct file_operations fops = {
 	.unlocked_ioctl = my_ioctl
 };
 
+/*
+@brief: Module Initialization
+@desc: A character device is created by dynamically allocating a device number.
+*/
 static int __init ModuleInit(void)
 {
 	printk("Hello Kernel\n");
@@ -114,6 +138,10 @@ ClassError:
 
 }
 
+/*
+@brief: Unloading module
+#desc: the device, class and device number are destroyed and the character device deleted.
+*/
 static void __exit ModuleExit(void)
 {
 	cdev_del(&my_device);

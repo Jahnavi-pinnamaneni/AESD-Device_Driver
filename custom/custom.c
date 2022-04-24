@@ -1,3 +1,11 @@
+/*
+@desc: This program aims at demonstrating GPIO interrupt, timer interrupt and sysfs together
+		GPIO Pin 17 is configured as input to trigger the interrupt. GPIO Pin 4 is configured 
+		as output to control an LED. 
+		When an interrupt is triggered, a timer is set to go off every one second which in turn 
+		toggles an LED.
+@Author: Jahanvi Pinnamnaneni; japi8358@colorado.edu
+*/
 #include <linux/module.h>
 #include <linux/init.h>
 #include <linux/gpio.h>
@@ -14,6 +22,10 @@ unsigned int irq_number;
 static struct timer_list my_timer;
 int flag = 0, time_flag =0;
 
+/*
+@brief: Interrupt handler for timer
+@desc : This handler, toggles the LED and calls itself recursively
+*/
 void timer_callback(struct timer_list * data)
 {
 	if(!time_flag)
@@ -28,7 +40,10 @@ void timer_callback(struct timer_list * data)
 	mod_timer(&my_timer, jiffies + msecs_to_jiffies(1000));
 }
 
-
+/*
+@brief: Interrupt handler for GPIO
+@desc : This handler, sets the timer to trigger after one second.
+*/
 static irq_handler_t gpio_irq_handler(unsigned int irq, void *dev_id, struct pt_regs *regs)
 {
 	printk("gpio_irq: Interrupt was triggered and ISR was called\n");
@@ -36,6 +51,11 @@ static irq_handler_t gpio_irq_handler(unsigned int irq, void *dev_id, struct pt_
 	return (irq_handler_t) IRQ_HANDLED;
 }
 
+/*
+@brief: Module initialization
+@desc : This function initializes GPIO 17 to input and GPIO 4 to output. 
+		The timer is setup.
+*/
 static int __init ModuleInit(void)
 {
 	printk("gpio_irq: Loading module");
@@ -88,6 +108,10 @@ static int __init ModuleInit(void)
 	return 0;
 }
 
+/*
+@brief: Unloading Module
+@desc: irq number and gpio are freed.
+*/
 static void __exit ModuleExit(void)
 {
 	printk("gpio_irq: Unloading module...");

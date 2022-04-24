@@ -1,3 +1,9 @@
+/*
+@brief: Communication is established between userspace and kernel space using sysfs.
+		The operations show and store are demonstrated after creating own kobject and file.
+		/sys/kernel/mu_class/test .
+@Author: Jahnavi Pinnamaneni; japi8358@colorado.edu
+*/
 #include <linux/module.h>
 #include <linux//init.h>
 #include <linux/kobject.h>
@@ -9,11 +15,18 @@ MODULE_DESCRIPTION("Kernel module to demostrate sysfs");
 
 static struct kobject *test_kobj;
 
+
+/*
+@brief: This function reads from kernel to userspace.
+*/
 static ssize_t test_show(struct kobject *kobj, struct kobj_attribute *attr, char *buffer)
 {
 	return sprintf(buffer, "You have read from /sys/kernel/%s/%s\n", kobj->name, attr->attr.name);
 }
 
+/*
+@brief: This function writes from userspace to kernel.
+*/
 static ssize_t test_store(struct kobject *kobj, struct kobj_attribute * attr, const char *buffer, size_t count)
 {
 	printk("sysfs: You wrote '%s' to /sys/kernel/%s%s\n", buffer, kobj->name, attr->attr.name);
@@ -22,6 +35,10 @@ static ssize_t test_store(struct kobject *kobj, struct kobj_attribute * attr, co
 
 static struct kobj_attribute test_attr = __ATTR(test, 0660, test_show, test_store);
 
+/*
+@brief: Module Initialization,
+	This fucntion creates a kernel object and sysfs file.
+*/
 static int __init my_init(void)
 {
 		printk("sysfs: Creating /sys/kernel/my_class/test\n");
@@ -43,6 +60,10 @@ static int __init my_init(void)
 		return 0;
 }
 
+/*
+@brief: Unloading of module
+	This function removes the kernel object nad sysfs file.
+*/
 static void __exit my_exit(void)
 {
 	printk("sysfs: Deleting /sys/kernel/my_class/test\n");
