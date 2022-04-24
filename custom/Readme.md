@@ -10,4 +10,4 @@
 **Output expected:** When a the button connected to GPIO pin 17 is pressed, the LED starts blinks continously with a period of 1 second.  
 6. sudo rmmod custom  
 
-![Output](Images/custom_output.jpg)
+![Output](../Images/custom_output.jpg)

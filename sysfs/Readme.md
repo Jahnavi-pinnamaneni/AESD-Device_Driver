@@ -11,4 +11,4 @@
 6. sudo rmmod sysfs_test  
 7. exit  
 
-![Output](Images/sysfs_output.jpg)
+![Output](../Images/sysfs_output.jpg)
