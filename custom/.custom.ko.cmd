@@ -1,0 +1,1 @@
+cmd_/home/jahnavi/Desktop/device_drivers/custom/custom.ko := ld -r -EL --build-id=sha1  -T scripts/module.lds -o /home/jahnavi/Desktop/device_drivers/custom/custom.ko /home/jahnavi/Desktop/device_drivers/custom/custom.o /home/jahnavi/Desktop/device_drivers/custom/custom.mod.o;  true

@@ -1,0 +1,1 @@
+cmd_/home/jahnavi/Desktop/device_drivers/sysfs/Module.symvers := sed 's/\.ko$$/\.o/' /home/jahnavi/Desktop/device_drivers/sysfs/modules.order | scripts/mod/modpost -m -a  -o /home/jahnavi/Desktop/device_drivers/sysfs/Module.symvers -e -i Module.symvers   -T -

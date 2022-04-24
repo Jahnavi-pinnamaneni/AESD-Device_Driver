@@ -1,0 +1,1 @@
+cmd_/home/jahnavi/Desktop/device_drivers/gpio_interrupt/gpio_irq.mod := { echo  /home/jahnavi/Desktop/device_drivers/gpio_interrupt/gpio_irq.o;  echo; } > /home/jahnavi/Desktop/device_drivers/gpio_interrupt/gpio_irq.mod

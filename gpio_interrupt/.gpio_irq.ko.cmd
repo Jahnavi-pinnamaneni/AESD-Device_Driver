@@ -1,0 +1,1 @@
+cmd_/home/jahnavi/Desktop/device_drivers/gpio_interrupt/gpio_irq.ko := ld -r -EL --build-id=sha1  -T scripts/module.lds -o /home/jahnavi/Desktop/device_drivers/gpio_interrupt/gpio_irq.ko /home/jahnavi/Desktop/device_drivers/gpio_interrupt/gpio_irq.o /home/jahnavi/Desktop/device_drivers/gpio_interrupt/gpio_irq.mod.o;  true
