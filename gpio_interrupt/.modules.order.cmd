@@ -1,1 +1,0 @@
-cmd_/home/jahnavi/Desktop/device_drivers/gpio_interrupt/modules.order := {   echo /home/jahnavi/Desktop/device_drivers/gpio_interrupt/gpio_irq.ko; :; } | awk '!x[$$0]++' - > /home/jahnavi/Desktop/device_drivers/gpio_interrupt/modules.order

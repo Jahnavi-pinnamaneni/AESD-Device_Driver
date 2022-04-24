@@ -1,1 +1,0 @@
-cmd_/home/jahnavi/Desktop/device_drivers/sysfs/sysfs_test.ko := ld -r -EL --build-id=sha1  -T scripts/module.lds -o /home/jahnavi/Desktop/device_drivers/sysfs/sysfs_test.ko /home/jahnavi/Desktop/device_drivers/sysfs/sysfs_test.o /home/jahnavi/Desktop/device_drivers/sysfs/sysfs_test.mod.o;  true

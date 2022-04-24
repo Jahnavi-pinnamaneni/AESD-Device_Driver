@@ -1,1 +1,0 @@
-cmd_/home/jahnavi/Desktop/device_drivers/ioctl/ioctl.ko := ld -r -EL --build-id=sha1  -T scripts/module.lds -o /home/jahnavi/Desktop/device_drivers/ioctl/ioctl.ko /home/jahnavi/Desktop/device_drivers/ioctl/ioctl.o /home/jahnavi/Desktop/device_drivers/ioctl/ioctl.mod.o;  true

@@ -1,1 +1,0 @@
-cmd_/home/jahnavi/Desktop/device_drivers/timer/modules.order := {   echo /home/jahnavi/Desktop/device_drivers/timer/mytimer.ko; :; } | awk '!x[$$0]++' - > /home/jahnavi/Desktop/device_drivers/timer/modules.order

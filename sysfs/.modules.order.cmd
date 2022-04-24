@@ -1,1 +1,0 @@
-cmd_/home/jahnavi/Desktop/device_drivers/sysfs/modules.order := {   echo /home/jahnavi/Desktop/device_drivers/sysfs/sysfs_test.ko; :; } | awk '!x[$$0]++' - > /home/jahnavi/Desktop/device_drivers/sysfs/modules.order

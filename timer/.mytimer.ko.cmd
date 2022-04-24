@@ -1,1 +1,0 @@
-cmd_/home/jahnavi/Desktop/device_drivers/timer/mytimer.ko := ld -r -EL --build-id=sha1  -T scripts/module.lds -o /home/jahnavi/Desktop/device_drivers/timer/mytimer.ko /home/jahnavi/Desktop/device_drivers/timer/mytimer.o /home/jahnavi/Desktop/device_drivers/timer/mytimer.mod.o;  true
