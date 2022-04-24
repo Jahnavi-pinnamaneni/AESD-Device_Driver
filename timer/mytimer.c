@@ -55,7 +55,7 @@ static int __init ModuleInit(void)
 		gpio_free(4);
 		return -1;
 	}
-	
+	printk("GPIO 4 set up for Timer done\n");
 	gpio_set_value(4,1);
 	
 	timer_setup(&my_timer, timer_callback, 0);

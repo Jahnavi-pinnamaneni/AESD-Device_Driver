@@ -46,7 +46,7 @@ void timer_callback(struct timer_list * data)
 */
 static irq_handler_t gpio_irq_handler(unsigned int irq, void *dev_id, struct pt_regs *regs)
 {
-	printk("gpio_irq: Interrupt was triggered and ISR was called\n");
+	printk("custom: Interrupt was triggered and ISR was called\n");
 	mod_timer(&my_timer, jiffies + msecs_to_jiffies(1000));
 	return (irq_handler_t) IRQ_HANDLED;
 }
@@ -58,7 +58,7 @@ static irq_handler_t gpio_irq_handler(unsigned int irq, void *dev_id, struct pt_
 */
 static int __init ModuleInit(void)
 {
-	printk("gpio_irq: Loading module");
+	printk("custom: Loading module");
 	
 	if(gpio_request(GPIO_INT, "rpi-gpio-17"))
 	{
