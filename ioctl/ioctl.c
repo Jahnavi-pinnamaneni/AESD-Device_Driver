@@ -24,7 +24,7 @@ static struct class *my_class;
 static struct cdev my_device;
 
 #define DRIVER_NAME "aesd_ioctl"
-#define DRIVER_CLASS "MyModuleClass"
+#define DRIVER_CLASS "MyModule"
 
 
 /*
