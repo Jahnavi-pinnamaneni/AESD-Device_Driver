@@ -8,6 +8,8 @@
 #include <linux/jiffies.h>
 #include <linux/timer.h>
 
+#define LED 26
+
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Jahnavi Pinnamaneni");
 MODULE_DESCRIPTION("Kernel module to demonstrate timers");
@@ -25,12 +27,12 @@ void timer_callback(struct timer_list * data)
 	if(flag)
 	{
 		flag = 0;
-		gpio_set_value(4,0);
+		gpio_set_value(LED,0);
 	}
 	else
 	{
 		flag = 1;
-		gpio_set_value(4,1);
+		gpio_set_value(LED,1);
 	}
 	mod_timer(&my_timer, jiffies + msecs_to_jiffies(1000));
 }
@@ -43,19 +45,19 @@ static int __init ModuleInit(void)
 {
 	printk("Hello Kernel\n");
 	
-	if(gpio_request(4, "rpi-gpio-4"))
+	if(gpio_request(LED, "rpi-gpio-26"))
 	{
-		printk("Can not allocate GPIO 4\n");
+		printk("Can not allocate GPIO 22\n");
 		return -1;
 	}
 	
-	if(gpio_direction_output(4, 0))
+	if(gpio_direction_output(LED, 0))
 	{
-		printk("Can not set GPIO 4 to output\n");
+		printk("Can not set GPIO 22 to output\n");
 		gpio_free(4);
 		return -1;
 	}
-	printk("GPIO 4 set up for Timer done\n");
+	printk("GPIO 22 set up for Timer done\n");
 	gpio_set_value(4,1);
 	
 	timer_setup(&my_timer, timer_callback, 0);
@@ -71,7 +73,7 @@ static int __init ModuleInit(void)
 static void __exit ModuleExit(void)
 {
 	printk("GoodBye\n");
-	gpio_free(4);
+	gpio_free(LED);
 	del_timer(&my_timer);
 }
 

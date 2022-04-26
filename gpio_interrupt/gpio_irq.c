@@ -9,7 +9,7 @@
 #include <linux/init.h>
 #include <linux/gpio.h>
 #include <linux/interrupt.h>
-#define GPIO_INT 17
+#define GPIO_INT 19
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Jahnavi Pinnamaneni");
@@ -35,15 +35,15 @@ static int __init ModuleInit(void)
 {
 	printk("gpio_irq: Loading module");
 	
-	if(gpio_request(GPIO_INT, "rpi-gpio-17"))
+	if(gpio_request(GPIO_INT, "rpi-gpio-19"))
 	{
-		printk("Error: Cannot allocate GPIO 17\n");
+		printk("Error: Cannot allocate GPIO 27\n");
 		return -1;
 	}
 	
 	if(gpio_direction_input(17))
 	{
-		printk("Error: Cannot set GPIO 17 to input\n");
+		printk("Error: Cannot set GPIO 27 to input\n");
 		gpio_free(GPIO_INT);
 		return -1;
 	}
@@ -58,7 +58,7 @@ static int __init ModuleInit(void)
 	}
 	
 	printk("Done\n");
-	printk("GPIO 17 is mapped to IRQ No: %d\n", irq_number);
+	printk("GPIO 27 is mapped to IRQ No: %d\n", irq_number);
 	return 0;
 }
 
