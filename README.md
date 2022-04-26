@@ -16,3 +16,5 @@ Furthermore, this has been extended to work on custom Linux image using Buildroo
 The links to the package and init script are as follows
 package: https://github.com/cu-ecen-aeld/final-project-DeekshithPatil/tree/main/base_external/package/extra  
 init script: https://github.com/cu-ecen-aeld/final-project-DeekshithPatil/tree/main/base_external/rootfs_overlay/etc/init.d  
+
+The outputs for both are present in the Images folder.
