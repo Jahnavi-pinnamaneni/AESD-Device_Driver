@@ -5,7 +5,7 @@
 3. echo 0 > /sys/class/gpio/gpio4/value  
 **Output expected:** Since the GPIO is exported to sysfs we can control it by writing to the value file of the gpio in /sys/class/gpio/gpio4.  
 
-![Sysfs_output](../Images/buildroot_outputs/custom_sysfs_ouput.jpg) 
+![Sysfs_output](../Images/Raspbian_outputs/custom_sysfs_ouput.jpg) 
 
 4. dmesg | tail  
 **Output expected:** When a the button connected to GPIO pin 17 is pressed, the LED starts blinks continously with a period of 1 second.  
