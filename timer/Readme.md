@@ -6,4 +6,4 @@
 **Output expected:** Once the module is loaded we observe that an LED connected to the GPIO Pin 4 starts to blink continously at a period of one second.  
 4. sudo rmmod timer  
 
-![Output](../Images/timer_output.jpg)
+![Output](../Images/Raspbian_outputs/timer_output.jpg)

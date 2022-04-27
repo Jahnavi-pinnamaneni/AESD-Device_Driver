@@ -13,4 +13,4 @@ In another terminal
   In the output of dmesg we also observe that Greetings are pritned 4 times since the test script had the repeat value as four.  
 6. sudo rmmod ioctl  
 
-![Output](../Images/ioctl_output.jpg)
+![Output](../Images/Raspbian_outputs/ioctl_output.jpg)
