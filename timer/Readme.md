@@ -1,4 +1,4 @@
-#Instructions to Build and run this module
+# Instructions to Build and run this module
 
 1. make  
 2. sudo insmod mytimer.ko  
